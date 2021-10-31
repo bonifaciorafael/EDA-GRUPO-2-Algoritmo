@@ -1,28 +1,25 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Ordenamiento_por_Selección
 {
-    class PruebaVector
+    class Vector_seleccion
     {
         private int[] vector;
 
         public void Cargar()
         {
-            Console.WriteLine("Metodo de Shell Sort");
-            Console.Write("Cuantos longitud del vector:");
+            Console.WriteLine("Metodo de seleccion");
+            Console.Write("longitud del vector:");
             string linea;
             linea = Console.ReadLine();
             int cant;
             cant = int.Parse(linea);
             vector = new int[cant];
-            for (int f = 0; f < vector.Length; f++)
+            for (int r = 0; r < vector.Length; r++)
             {
-                Console.Write("Ingrese elemento " + (f + 1) + ": ");
+                Console.Write("Ingrese elemento " + (r + 1) + ": ");
                 linea = Console.ReadLine();
-                vector[f] = int.Parse(linea);
+                vector[r] = int.Parse(linea);
             }
         }
 
@@ -69,10 +66,10 @@ namespace Ordenamiento_por_Selección
 
         static void Main(string[] args)
         {
-            PruebaVector pv = new PruebaVector();
-            pv.Cargar();
-            pv.Shell();
-            pv.Imprimir();
+            Vector_seleccion vs = new Vector_seleccion();
+            vs.Cargar();
+            vs.Shell();
+            vs.Imprimir();
         }
     }
 }
