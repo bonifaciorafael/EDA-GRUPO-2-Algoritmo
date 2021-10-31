@@ -3,7 +3,7 @@ utilizando System.Collections.Generic;
 utilizando System.Linq;
 utilizando System.Text;
 
-//Espacio de nombres quicksort
+Espacio de nombres quicksort
 {
  clase Clase
     {
@@ -25,7 +25,7 @@ utilizando System.Text;
         {
             x = n;
  vector = nuevo int[x];
- para (int identidad = 0; identidad < h; identidad++)
+ para (int identidad = 0; identidad < x; identidad++)
             {
                 Console.Write("ingrese valor {0}: ", identidad + 1);
                 vector[identidad] = Int32.Parse(Console.ReadLine());
