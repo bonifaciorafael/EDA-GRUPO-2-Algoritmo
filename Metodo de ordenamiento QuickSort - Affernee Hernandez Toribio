@@ -1,34 +1,35 @@
-utilizando el sistema;
-utilizando System.Collections.Generic;
-utilizando System.Linq;
-utilizando System.Text;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-Espacio de nombres quicksort
+// Metodo de ordenamiento Rapido (QuickSort). 
+namespace quicksort
 {
- clase Clase
+    class Class
     {
- vacío estático Main()
+        static void Main()
         {
             int num;
             Console.WriteLine("Metodo de Quick Sort (Ordenamiento Rapido)");
             Console.Write("Dgitar la cantidad de numeros a ordenar (Vector): ");
-            n = Int32.Parse(Console.ReadLine());
- llenar b = nuevo llenar(num);
+            num = Int32.Parse(Console.ReadLine());
+            llenar b = new llenar(num);
         }
     }
 
- clase llenar
+    class llenar
     {
         int x;
         int[] vector;
         public llenar(int num)
         {
-            x = n;
- vector = nuevo int[x];
- para (int identidad = 0; identidad < x; identidad++)
+            x = num;
+            vector = new int[x];
+            for (int i = 0; i < x; i++)
             {
-                Console.Write("ingrese valor {0}: ", identidad + 1);
-                vector[identidad] = Int32.Parse(Console.ReadLine());
+                Console.Write("ingrese valor {0}: ", i + 1);
+                vector[i] = Int32.Parse(Console.ReadLine());
             }
             quicksort(vector, 0, x - 1);
             mostrar();
@@ -37,25 +38,25 @@ Espacio de nombres quicksort
         private void quicksort(int[] vector, int primero, int ultimo)
         {
             int i, j, central;
- doble pivote;
+            double pivote;
             central = (primero + ultimo) / 2;
             pivote = vector[central];
-            identidad = primero;
+            i = primero;
             j = ultimo;
- hacer
+            do
             {
- mientras que (vector[identidad] < pivote) i++;
- mientras que (vector[j] > pivote) j--;
- si (identidad <= j)
+                while (vector[i] < pivote) i++;
+                while (vector[j] > pivote) j--;
+                if (i <= j)
                 {
                     int temp;
-                    temp = vector[identidad];
-                    vector[identidad] = vector[j];
+                    temp = vector[i];
+                    vector[i] = vector[j];
                     vector[j] = temp;
                     i++;
                     j--;
                 }
- } mientras que (identidad <= j);
+            } while (i <= j);
 
             if (primero < j)
             {
@@ -63,16 +64,16 @@ Espacio de nombres quicksort
             }
             if (i < ultimo)
             {
-                quicksort(vector, identidad, ultimo);
+                quicksort(vector, i, ultimo);
             }
         }
 
         private void mostrar()
         {
-            Console.WriteLine("lista (Vector) ordenados en forma ascendente");
- para (int identidad = 0; identidad < h; identidad++)
+            Console.WriteLine("Lista ordenada en forma ascendente");
+            for (int i = 0; i < x; i++)
             {
-                Console.Write("{0} ", vector[identidad]);
+                Console.Write("{0} ", vector[i]);
             }
             Console.ReadLine();
         }
