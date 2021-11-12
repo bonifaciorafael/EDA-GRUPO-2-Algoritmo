@@ -1,0 +1,148 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Operaciones_con_árboles
+{
+    class Insertar_buscar
+    { 
+        public class nodo
+        {
+            public nodo isq;
+            public nodo der;
+            public char letra;
+         
+            public nodo( char letra)
+            {
+                this.letra = letra;
+                this.isq = null;
+                this.der = null;
+      }
+
+        }
+
+        internal void insertar(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+       
+        public nodo raiz;
+        public Insertar_buscar()
+        {
+           raiz = null;
+
+        } 
+        public void insertar ( char letra)
+        {
+            nodo nuevo= new nodo( letra );
+             
+            if( this.raiz == null )
+            {
+                this.raiz = nuevo;
+
+            }
+            else
+            {
+                this.raiz = this.InsertarNodo(raiz, nuevo);
+
+
+            }
+
+        }
+
+      public nodo InsertarNodo(nodo actual, nodo nuevo)
+
+        {
+            if (nuevo.letra.CompareTo(actual.letra) < 0)
+            {
+                if (actual.isq == null) {
+                    actual.isq = nuevo;
+                    return actual;
+
+
+                }
+                else
+                {
+                    actual.isq = InsertarNodo(actual.isq, nuevo);
+                    return actual;
+
+
+                }
+            }
+            else if (nuevo.letra.CompareTo(actual.letra) > 0)
+            {
+                if(actual.der == null)
+                {
+                    actual.der = nuevo;
+                    return actual;
+            }
+                else
+                {
+                    actual.der=InsertarNodo(actual.der, nuevo);
+                    return actual;
+                }
+            }
+            else
+            {
+                return null;
+            }
+
+
+            { 
+    }
+
+    }
+public void preordenrecursivo()
+        {
+            Console.WriteLine("PREORDEN");
+            preorden(raiz);
+
+        }
+        public void preorden(nodo raiz)
+        {
+            if( raiz != null)
+            {
+                Console.WriteLine(raiz.letra.ToString());
+                preorden(raiz.isq);
+                preorden(raiz.der);
+
+            }
+
+        } 
+        public void inordencursivo()
+        {
+            Console.WriteLine("INORDEN");
+            inorden(raiz);
+        }
+        public void inorden( nodo raiz)
+            {
+            if(raiz != null)
+            {
+                inorden(raiz.isq);
+                Console.WriteLine(raiz.letra.ToString());
+                inorden(raiz.der);  
+            }
+        }
+        public void postodencursivo()
+        {
+            Console.WriteLine("POSTORDEN");
+            postorden(raiz);
+
+        }
+        public void postorden(nodo raiz)
+        {
+            if(raiz !=null)
+            {
+                postorden(raiz.isq);
+                postorden(raiz.der);
+                Console.WriteLine(raiz.letra.ToString());
+               
+            }
+        }
+
+    }
+}
+
